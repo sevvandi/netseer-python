@@ -1,0 +1,36 @@
+site_name: "Netseer"
+
+nav:
+  - Home: index.md
+  - Tutorial: tutorial.md
+  - How To: how_to.md
+  - Explanations: explanation.md
+  - References: references.md
+
+theme:
+  name: material
+  font:
+    text: Lexend
+  features:
+    - navigation.tabs
+    - navigation.tabs.sticky
+    - navigation.sections
+  palette:
+    - scheme: default
+      primary: deep purple
+      accent: deep purple
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - scheme: slate
+      primary: deep purple
+      accent: deep purple
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+
+plugins:
+  - search
+  - mkdocstrings
