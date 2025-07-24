@@ -13,7 +13,7 @@ Netseer is a tool that outputs a predicted graph based on a time series graph se
 The goal of netseer is to predict the graph structure including new nodes and edges from a time series of graphs.  
 The methodology is explained in the preprint (Kandanaarachchi et al. 2025).
 
-![Image of a time-series list of graphs and a predicted graph.](img/netseer.svg "netseer")
+![Image of a time-series list of graphs and a predicted graph.](docs/img/netseer.svg "netseer")
 
 ## Installation
 
