@@ -1,4 +1,4 @@
-"""Forcasting Module"""
+"""Internal: Supplimentary functions for predictions."""
 
 from collections.abc import Iterable
 from typing import Optional

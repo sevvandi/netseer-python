@@ -4,45 +4,48 @@
 
 ---
 
-This is a Python implementation of [Netseer](https://arxiv.org/html/2401.04280v1)
-Documentation: [GitHub](https://sevvandi.github.io/netseer-python)
+This is a Python implementation of [*netseer*](https://arxiv.org/html/2401.04280v1).  
+Netseer is a tool that outputs a predicted graph based on a time series graph sequence
+---
 
 ## Purpose
 
-Netseer is a tool that outputs a predicted graph based on a time series graph sequence.
+The goal of netseer is to predict the graph structure including new nodes and edges from a time series of graphs.  
+The methodology is explained in the preprint (Kandanaarachchi et al. 2025).
 
-Citing:
-
-```
-Sevvandi Kandanaarachchi, Ziqi Xu, Stefan Westerlund, and Conrad Sanderson. 2025. “Predicting Graph Structure via Adapted Flux Balance Analysis.” [https://arxiv.org/abs/2507.05806](https://arxiv.org/abs/2507.05806).
-```
+![Image of a time-series list of graphs and a predicted graph.](img/netseer.svg "netseer")
 
 ## Installation
 
 This package is available on PyPI, and can be installed with PIP or with a Package Manager:
 
 ``` Bash
-pip install netseer # or
-uv add netseer
+pip install netseer # or uv add netseer
 ```
 
 ## Quick Example
 
-Generating an example list of graphs:
+Generating an example graph list:
 
 ``` Python
-from netseer import generate_graph, prediction
+from netseer import generate_graph
 
 graph_list = generate_graph.generate_graph_list()
 ```
 
-Note: `generate_graph_list()` has parameters to tailor the created graphs.
-See the Reference section in the documentation for more.
+The `generate_graph_list()` function has parameters for templating what types of graphs to generate. Information about these can be found in the reference docs.
 
-Predicting on that graph list:
+Predicting on that graph:
 
 ``` Python
+from netseer import prediction
+
 predict = prediction.predict_graph(graph_list, h=1)
 ```
 
-Increasing the `h` parameter increases how much into the future the prediction is, with `h=1` being 1 step in the graph sequence.
+Increasing the `h` parameter increases how many steps into the future the prediction is, with `h=1` being 1 step in the graph sequence.
+
+## References
+
+Kandanaarachchi, Sevvandi, Ziqi Xu, Stefan Westerlund, and Conrad Sanderson. 2025.
+  “Predicting Graph Structure via Adapted Flux Balance Analysis.” <https://arxiv.org/abs/2507.05806>.

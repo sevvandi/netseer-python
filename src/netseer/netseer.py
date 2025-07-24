@@ -1,14 +1,19 @@
-"""This Module is only used for running Netseer via the CLI"""
+"""Internal: This Module is only used for running Netseer via the CLI for testing.
+
+Typical usage example:
+    ``` bash
+    python netseer.py --random_graph
+    # As we use uv and it's hard to add in args, instead there is a script in pyproject.toml:
+    uv run random
+    ```
+
+"""
 
 import sys
 
-from collections.abc import Iterable
-import numpy as np
-import igraph as ig
 import argparse
 
 import netseer.generate_graph as generate_graph
-import netseer.forecasting as forecasting
 import netseer.prediction as prediction
 import netseer.utils as utils
 

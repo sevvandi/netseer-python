@@ -1,14 +1,17 @@
-site_name: "Netseer"
+site_name: "netseer"
 
 nav:
   - Home: index.md
   - Tutorial: tutorial.md
-  - How To: how_to.md
-  - Explanations: explanation.md
   - References: references.md
+
+extra_css:
+  - stylesheets/extra.css
 
 theme:
   name: material
+  logo: img/logo.png
+  favicon: img/logo.png
   font:
     text: Lexend
   features:

@@ -1,6 +1,22 @@
-"""Utility Functions
+"""Utility functions that help with dataloading
 
 Typical functions:
+    ``` Python
+    from netseer import utils, prediction
+    from pathlib import Path
+
+    # Get the directory/folder with all the graphs.
+    directory_path = Path.cwd() / Path("path/to/data")
+    # Use glob to get a list of absolute paths for .gml files.
+    graph_files = directory_path.glob("*.gml"))
+
+    # Load the graphs into igraph using the list of gml files.
+    graph_list = utils.read_graph_list(graph_files)
+
+    # Then use the list of graphs for predictions.
+    predict = prediction.predict_graph(graph_list, h=1)
+    ```
+
     read_graph_list()
 """
 
@@ -25,10 +41,12 @@ def get_neighbours_of_neighbours(gr: ig.Graph) -> np.ndarray:
 
 
 def read_graph_list(filenames: list[str]) -> list[ig.Graph]:
-    """Reads graphs from disk.
+    """Reads a list graphs from disk.
+
+    The list of graphs are sorted based on their file name in decending order.
 
     Args:
-        filenames: A list of absolute paths ig.read compatible stored graphs.
+        filenames: A list of absolute paths to ig.read compatible graphs. E.g. *.gml files.
 
     Returns:
         A list of read graphs.
@@ -40,6 +58,16 @@ def read_graph_list(filenames: list[str]) -> list[ig.Graph]:
 
 
 def read_pickled_list(filename: str) -> list[ig.Graph]:
+    """Reads a saved list of graphs from a .pkl file.
+
+    Compared to read_graph_list(), the de-serialised list has it's order maintained.
+
+    Args:
+        filename: Absolute path to the .pkl file.
+
+    Returns:
+        A list of graphs.
+    """
     # read a graph list that is stored in a single pickled file
     print(f"Reading pickled graph list from {filename}")
     return pickle.load(filename)
