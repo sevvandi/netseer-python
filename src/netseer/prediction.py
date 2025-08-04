@@ -47,7 +47,12 @@ def predict_graph(
         h: How many steps into the future the prediction should be.
         conf_nodes: -- TODO
         conf_degree: -- TODO
-        weights_option: -- TODO
+        weights_option: Int between 1-7 determines the weight of newly created edges.
+            1-3: Weight 0 for all edges.
+            4: Weight 1 for all edges.
+            5: Linear scaling weights for new edges (x+1). E.g. 1, 2, 3
+            6: Proportional Weights.
+            7: Weight 0 for all edges, except for last edge which is 1.
 
     Returns:
         Predicted Graph.

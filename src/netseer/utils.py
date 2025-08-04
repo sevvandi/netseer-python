@@ -43,7 +43,7 @@ def get_neighbours_of_neighbours(gr: ig.Graph) -> np.ndarray:
 def read_graph_list(filenames: list[str]) -> list[ig.Graph]:
     """Reads a list graphs from disk.
 
-    The list of graphs are sorted based on their file name in decending order.
+    The graphs are read in index order, therefore the first graph in the time-series is at index 0.
 
     Args:
         filenames: A list of absolute paths to ig.read compatible graphs. E.g. *.gml files.
@@ -52,15 +52,12 @@ def read_graph_list(filenames: list[str]) -> list[ig.Graph]:
         A list of read graphs.
     """
     # read a list of saved graph files
-    sorted_names = sorted(filenames)
-    print(f"Reading in graph files: {sorted_names}")
+    print(f"Reading in graph files: {filenames}")
     return [ig.read(filename) for filename in filenames]
 
 
 def read_pickled_list(filename: str) -> list[ig.Graph]:
     """Reads a saved list of graphs from a .pkl file.
-
-    Compared to read_graph_list(), the de-serialised list has it's order maintained.
 
     Args:
         filename: Absolute path to the .pkl file.

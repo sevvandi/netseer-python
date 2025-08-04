@@ -66,7 +66,16 @@ The `graph_files` will now contain the path to each graph, as a list.
 Similar to: `["home/code/netseer/data/graph_1.gml", "home/code/netseer/data/graph_2.gml","home/code/netseer/data/graph_3.gml"]`
 
 Then use the imported utils function `read_graph_list()` on the `graph_files`.  
-This reads each .gml file in the `graph_files` and loads them into a list of graphs, loaded in memory.
+This reads each .gml file in the `graph_files` and loads them into a list of graphs, loaded in memory.  
+The graphs are loaded in the index order in `graph_files`.  
+Use a numbering system for the .gml file names so that `sorted` can arrange the graphs paths in descending order.
+
+``` Python
+# If you need to sort the graph names.
+graph_files = sorted(graph_files)
+```
+
+After the optional sorting:
 
 ``` Python
 # Load the graphs into igraph using the list of gml files.

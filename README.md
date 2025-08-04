@@ -2,8 +2,6 @@
 
 ## Predicting graph structure from a time series of graphs
 
----
-
 This is a Python implementation of [*netseer*](https://arxiv.org/html/2401.04280v1).  
 Netseer is a tool that outputs a predicted graph based on a time series graph sequence
 ---
